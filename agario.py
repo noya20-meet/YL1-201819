@@ -15,13 +15,14 @@ screen_height = turtle.getcanvas().winfo_height()/2
 my_ball = Ball(0, 0, 8, 5, 40, "light pink")
 number_of_balls = 7
 minimum_ball_radius = 15
-maximum_ball_radius = 130
+maximum_ball_radius = 110
 minimum_ball_dx = -5
 maximum_ball_dx = 5
 minimum_ball_dy = -5
 maximum_ball_dy = 5
 global score
 score = 0
+
 #Part 2#
 BALLS = []
 for i in range (number_of_balls):
@@ -75,6 +76,7 @@ def called_all_balls_collision():
 						running = True
 						score = score + 10
 
+
 #Part 5#
 def movearound():
 	x = turtle.getcanvas().winfo_pointerx() - screen_width
@@ -82,7 +84,15 @@ def movearound():
 
 	my_ball.goto(x,y)
 #part 6 + score#
+turtle.ht()
+for num in range(1,4):
+	for size in range(100):
+		turtle.clear()
+		turtle.write(num, font=("Lato Heavy", size, "normal"))
+		time.sleep(.01)
+
 turtle.goto(0,screen_height-200)
+
 while running == True:
 	turtle.clear()
 	screen_width = turtle.getcanvas().winfo_width()/2
@@ -91,10 +101,7 @@ while running == True:
 	move_all_balls()
 	called_all_balls_collision()
 	turtle.update()
-	turtle.write("score: " + str(score), font=("Purisa", 50, "normal"))
+	turtle.write("score: " + str(score), font=("Lato Heavy", 50, "normal"))
 	time.sleep(.05)
-
-#extra - restart button#
-
 
 turtle.mainloop() 
